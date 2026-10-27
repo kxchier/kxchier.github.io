@@ -1,28 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🎐</text></svg>' />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kate Chier</title>
-
-    <meta property="og:title" content="Kate Chier" />
-    <meta property="og:description" content="a digital garden" />
-    <meta property="og:image" content="https://kxchier.github.io/assets/train-scene/id.png" />
-    <meta property="og:url" content="https://kxchier.github.io" />
-    <meta property="og:type" content="website" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&family=Love+Ya+Like+A+Sister&display=swap"
-      rel="stylesheet"
-    />
-    <script type="module" crossorigin src="/assets/index-DWfFNZO0.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-iOGdRu8r.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>kate chier</title>
+    <meta name="description" content="Writer, artist, and researcher.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=La+Belle+Aurore&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="home">
+    <!--
+      Drop PNG assets in /images (see the names below).
+      Transparent backgrounds sit cleanly on the paper color.
+    -->
+    <div class="stage">
+      <a class="logo" href="index.html">kate chier</a>
+      <img
+        class="portrait"
+        src="images/portrait.png"
+        alt="A small portrait on torn paper, held with tape, with a sprig of dried flowers"
+        draggable="false"
+      >
+      <p class="bio">I’m a writer, artist, and researcher interested in how people gather fragments of the world and make meaning from them.</p>
+      <div class="letter">
+        <img class="letter-back" src="images/envelope.png" alt="" draggable="false">
+        <div
+          class="note"
+          tabindex="0"
+          aria-expanded="false"
+          aria-label="Note. Drag it out of the envelope, or press Enter."
+        >
+          <img src="images/paper_note.png" alt="" draggable="false">
+          <ul class="note-list">
+            <li>reading <em>Kafka on the Shore</em></li>
+            <li>finishing my last semester at UC Berkeley</li>
+            <li>thinking about how humans are foragers and collages</li>
+          </ul>
+        </div>
+        <img class="letter-front" src="images/envelope_front.png" alt="" draggable="false">
+      </div>
+      <p class="footnote">site under construction...</p>
+    </div>
+    <script src="js/letter.js?v=9"></script>
   </body>
 </html>
