@@ -17,7 +17,7 @@
     <meta name="robots" content="max-image-preview:none">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=La+Belle+Aurore&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=La+Belle+Aurore&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body class="home">
@@ -27,13 +27,20 @@
     -->
     <div class="stage">
       <a class="logo" href="index.html">kate chier</a>
+      <nav>
+        <a href="index.html" aria-current="page">home</a>
+        <a href="research.html">research</a>
+      </nav>
       <img
         class="portrait"
         src="images/portrait.png"
         alt="A small portrait on torn paper, held with tape, with a sprig of dried flowers"
         draggable="false"
       >
-      <p class="bio">I’m a writer, artist, and researcher interested in how people gather fragments of the world and make meaning from them.</p>
+      <div class="bio">
+        <p>I’m a writer, artist, and researcher interested in how people gather fragments of the world and make meaning from them.</p>
+        <p>Currently, I am an undergraduate senior at UC Berkeley studying computer science and creative writing.</p>
+      </div>
       <div class="letter">
         <img class="letter-back" src="images/envelope.png" alt="" draggable="false">
         <div
@@ -53,6 +60,7 @@
       </div>
       <p class="footnote">site under construction...</p>
     </div>
-    <script src="js/letter.js?v=9"></script>
+    <script src="js/letter.js?v=10"></script>
+    <script src="js/navigation.js"></script>
   </body>
 </html>

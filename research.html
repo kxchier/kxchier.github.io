@@ -7,17 +7,62 @@
     <meta name="description" content="Research by Kate Chier.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=La+Belle+Aurore&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=La+Belle+Aurore&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
   </head>
-  <body class="page">
-    <header class="bar">
+  <body class="research">
+    <div class="stage">
       <a class="logo" href="index.html">kate chier</a>
-    </header>
-    <main class="sheet">
-      <h1>research</h1>
-      <p>This page is on its way.</p>
-    </main>
-    <p class="footnote">site under construction...</p>
+      <nav>
+        <a href="index.html">home</a>
+        <a href="research.html" aria-current="page">research</a>
+      </nav>
+      <div class="strips">
+        <article class="strip">
+          <img class="strip-bg" src="images/paper bg.png" alt="" draggable="false">
+          <div class="strip-body">
+            <img
+              class="strip-fig"
+              src="images/mylar fig.png"
+              alt="A person wondering where their art could live, beside a portfolio workspace"
+              draggable="false"
+            >
+            <div class="strip-copy">
+              <h2>Mylar</h2>
+              <p class="subtitle">Exploring Self-Curation as a Reflexive Creative Practice</p>
+              <p class="meta">
+                Preprint
+                <span aria-hidden="true"> | </span>
+                <a href="https://arxiv.org/abs/2610.21213" target="_blank" rel="noopener noreferrer">Link</a>
+              </p>
+            </div>
+          </div>
+        </article>
+        <article class="strip strip-mirror">
+          <img class="strip-bg" src="images/paper bg.png" alt="" draggable="false">
+          <div class="strip-body">
+            <img
+              class="strip-fig"
+              src="images/walo fig.png"
+              alt="A browser window filled with small artworks"
+              draggable="false"
+            >
+            <div class="strip-copy">
+              <h2>Where Art Lives Online</h2>
+              <p class="subtitle">Reimagining Creative Distribution</p>
+              <p class="meta">
+                C&amp;C 2026 Poster
+                <span aria-hidden="true"> | </span>
+                <a href="https://doi.org/10.1145/3803784.3816824" target="_blank" rel="noopener noreferrer">Link</a>
+              </p>
+            </div>
+          </div>
+          <img class="sprig" src="images/sprig.png" alt="" draggable="false">
+        </article>
+      </div>
+      <p class="footnote">site under construction...</p>
+    </div>
+    <script src="js/letter.js?v=10"></script>
+    <script src="js/navigation.js"></script>
   </body>
 </html>

@@ -1,7 +1,8 @@
-(function () {
+function initializeLetter() {
   const letter = document.querySelector(".letter");
   const note = document.querySelector(".note");
-  if (!letter || !note) return;
+  if (!letter || !note || note.dataset.initialized) return;
+  note.dataset.initialized = "true";
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let dragging = false;
@@ -80,4 +81,7 @@
   window.addEventListener("resize", () => {
     apply(note.classList.contains("is-out") ? travel() : 0, false);
   });
-})();
+}
+
+initializeLetter();
+document.addEventListener("pagechange", initializeLetter);
