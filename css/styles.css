@@ -1,6 +1,6 @@
 :root {
-  --paper: #fff;
-  --ink: #6a5f54;
+  --paper: #fefaf7;
+  --ink: #33302c;
   --stage-ratio: 1024 / 665;
   --serif: "EB Garamond", "Iowan Old Style", Palatino, "Palatino Linotype", serif;
   --script: "La Belle Aurore", "Segoe Script", cursive;
@@ -20,19 +20,7 @@ body {
   color: var(--ink);
   background-color: var(--paper);
   font-family: var(--serif);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 1;
-  background-image: url("../images/paper.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 
 a {
@@ -56,8 +44,47 @@ a:focus-visible {
   color: var(--ink);
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Shared frame. Positions follow the reference frame (1024 × 665); the lace
+   bleeds off the top-left corner, so the frame is pinned there. */
+
+.stage {
+  position: relative;
+  width: min(100vw, calc(100dvh * var(--stage-ratio) - 2px));
+  aspect-ratio: var(--stage-ratio);
+  container-type: inline-size;
+}
+
+.lace,
+.portrait,
+.project-fig,
+.letter-back,
+.letter-front,
+.note img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.lace {
+  position: absolute;
+  left: -15.5cqi;
+  top: -15.7cqi;
+  width: 59.6cqi;
+  max-width: none;
+}
+
 .logo {
+  position: absolute;
+  left: 4.9%;
+  top: 7.2%;
   font-family: var(--script);
+  font-size: 4.1cqi;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.01em;
@@ -68,83 +95,78 @@ a:focus-visible {
   opacity: 0.7;
 }
 
+.portrait {
+  position: absolute;
+  left: 2.6%;
+  top: 14.3%;
+  width: 23%;
+}
+
+.word-fish {
+  position: absolute;
+  left: 2.6%;
+  top: 48.6%;
+  width: 24.6%;
+  height: 27.6%;
+  display: block;
+  color: var(--ink);
+  touch-action: pan-y;
+}
+
+.contact {
+  position: absolute;
+  left: 5.1%;
+  bottom: 17.4%;
+  margin: 0;
+  display: flex;
+  gap: 2cqi;
+  font-size: min(1.52cqi, 14.5px);
+  line-height: 1.2;
+}
+
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.contact svg {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 nav {
+  position: absolute;
+  top: 9.6%;
+  right: 7.4%;
   display: flex;
   align-items: baseline;
+  gap: 5.8cqi;
 }
 
 nav a {
+  font-size: min(1.52cqi, 14.5px);
+  font-weight: 600;
   line-height: 1;
 }
 
-.footnote {
-  margin: 0;
-  font-style: italic;
-  font-weight: 400;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Home collage. Positions follow the reference frame (1024 × 665). */
-
-body.home {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
-}
-
-.stage {
-  position: relative;
-  z-index: 1;
-  width: min(1180px, calc(100vw - 32px), calc(100dvh * var(--stage-ratio) - 24px));
-  aspect-ratio: var(--stage-ratio);
-  container-type: inline-size;
-}
-
-.home .logo {
-  position: absolute;
-  left: 4.9%;
-  top: 7.2%;
-  font-size: 4.1cqi;
-}
-
-.home nav {
-  position: absolute;
-  top: 8.2%;
-  right: 10.8%;
-  gap: 4.4cqi;
-}
-
-.home nav a {
-  font-size: 1.58cqi;
-  font-weight: 600;
-  color: #33302c;
-}
-
-.portrait {
-  position: absolute;
-  left: 13.4%;
-  top: 17.4%;
-  width: 22.9%;
-  user-select: none;
-}
+/* Home */
 
 .bio {
   position: absolute;
-  left: 43%;
-  top: 24%;
-  width: 48%;
-  margin: 0;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.78cqi;
-  line-height: 1.32;
-  color: #33302c;
+  left: 40.5%;
+  right: 7.4%;
+  top: 22.6%;
+  max-width: 28em;
+  margin-inline: auto;
+  font-size: min(2.1cqi, 20px);
+  line-height: 1.33;
 }
 
 .bio p {
@@ -152,24 +174,17 @@ body.home {
 }
 
 .bio p + p {
-  margin-top: 1.15em;
+  margin-top: 1.33em;
 }
 
 .letter {
   position: absolute;
-  right: 7%;
+  right: 3%;
   bottom: 1.5%;
-  width: 36%;
+  width: 29.7%;
   aspect-ratio: 1;
   z-index: 3;
   user-select: none;
-}
-
-.letter-back,
-.letter-front,
-.note img {
-  pointer-events: none;
-  -webkit-user-drag: none;
 }
 
 .letter-back,
@@ -260,378 +275,171 @@ body.home {
   font-style: italic;
 }
 
-.home .footnote,
-.research .footnote {
+/* Research */
+
+.projects {
   position: absolute;
-  left: 5%;
-  bottom: 2.6%;
-  font-size: 1.7cqi;
-}
-
-/* Research collage. The paper image includes transparent margins and
-   a tape corner; the second strip is mirrored so the tape sits on the left. */
-
-body.research {
-  min-height: 100vh;
-  min-height: 100dvh;
+  left: 40%;
+  top: 20.9%;
   display: grid;
-  place-items: center;
+  row-gap: 3.7cqi;
 }
 
-.research .logo {
-  position: absolute;
-  left: 4.9%;
-  top: 7.2%;
-  font-size: 4.1cqi;
-}
-
-.research nav {
-  position: absolute;
-  top: 8.2%;
-  right: 10.8%;
-  gap: 4.4cqi;
-}
-
-.research nav a {
-  font-size: 1.58cqi;
-  font-weight: 600;
-  color: #33302c;
-}
-
-.strips {
-  position: absolute;
-  left: 14%;
-  top: 11.5%;
-  width: 68%;
-}
-
-.strip {
-  position: relative;
-}
-
-.strip + .strip {
-  margin-top: -15.4%;
-}
-
-.strip-bg,
-.strip-fig,
-.sprig {
-  pointer-events: none;
-  -webkit-user-drag: none;
-  user-select: none;
-}
-
-.strip-bg {
-  width: 100%;
-  height: auto;
-}
-
-.strip-mirror .strip-bg {
-  transform: scaleX(-1);
-}
-
-.strip-body {
-  position: absolute;
-  left: 5%;
-  right: 6%;
-  top: 23%;
-  bottom: 27%;
+.project {
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.3fr);
-  align-items: center;
-  column-gap: 5%;
+  grid-template-columns: 22.8cqi min(25cqi, 238px);
+  column-gap: 3.5cqi;
+  align-items: start;
 }
 
-.strip-fig {
+.project-fig {
   width: 100%;
-  height: auto;
-  transform: translateY(6px);
 }
 
-.strip-copy h2,
-.strip-copy p {
+.project + .project .project-fig {
+  transform: translateX(1.3cqi);
+}
+
+.project-copy {
+  padding-top: 0.7cqi;
+}
+
+.project-copy h2,
+.project-copy p {
   margin: 0;
-  font-family: var(--serif);
   font-weight: 400;
-  color: #33302c;
 }
 
-.strip-copy h2 {
-  font-size: 1.72cqi;
-  line-height: 1.15;
-}
-
-.strip-copy .subtitle {
-  margin-top: 0.12em;
-  font-size: 1.48cqi;
-  line-height: 1.25;
-}
-
-.strip-copy .meta {
-  margin-top: 1.35em;
-  font-size: 1.42cqi;
+.project-copy h2 {
+  font-size: min(2.05cqi, 19.5px);
   line-height: 1.2;
 }
 
-.strip-copy .meta a {
+.project-copy .subtitle {
+  margin-top: 0.1em;
+  font-size: min(1.56cqi, 15px);
+  line-height: 1.4;
+}
+
+.project-copy .meta {
+  margin-top: 1.1em;
+  font-size: min(1.5cqi, 14.5px);
+  line-height: 1.2;
+}
+
+.project-copy .meta a {
   text-decoration: underline;
   text-underline-offset: 0.2em;
   text-decoration-thickness: 1px;
 }
 
-.sprig {
-  position: absolute;
-  right: -8%;
-  bottom: 8%;
-  width: 22%;
-  height: auto;
-  z-index: 4;
-}
-
-/* Interior pages share the paper, wordmark, and nav. */
-
-body.page {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-}
-
-.bar {
-  position: relative;
-  z-index: 1;
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 48px 2px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.page .logo {
-  font-size: clamp(40px, 4.4vw, 54px);
-}
-
-.page nav {
-  gap: clamp(28px, 4vw, 52px);
-}
-
-.page nav a {
-  font-size: clamp(15px, 1.5vw, 18px);
-}
-
-.sheet {
-  position: relative;
-  z-index: 1;
-  width: min(1180px, calc(100% - 48px));
-  margin: 14vh auto 0;
-  padding: 0 2px;
-  flex: 1;
-}
-
-.sheet h1 {
-  margin: 0 0 0.7em;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(28px, 3vw, 36px);
-}
-
-.sheet p {
-  margin: 0;
-  font-size: clamp(18px, 2vw, 22px);
-  line-height: 1.6;
-}
-
-.page .footnote {
-  position: relative;
-  z-index: 1;
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 0 2px 36px;
-  font-size: 15px;
-}
+/* Phones: the lace becomes a header card and everything else stacks below. */
 
 @media (max-width: 720px) {
-  body.home {
-    display: block;
-  }
-
   .stage {
     width: 100%;
     aspect-ratio: auto;
     min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 28px 22px 26px;
-    gap: 28px;
+    padding-bottom: 28px;
   }
 
-  .home .logo,
-  .home nav,
+  .side {
+    position: relative;
+    isolation: isolate;
+    width: 66vw;
+    padding: 30px 0 64px 22px;
+  }
+
+  .lace {
+    left: auto;
+    top: auto;
+    right: -29.3%;
+    bottom: -3%;
+    width: 180%;
+    z-index: -1;
+  }
+
+  .logo,
   .portrait,
-  .bio,
-  .home .footnote {
+  .word-fish,
+  .contact {
     position: static;
   }
 
-  .home .logo {
-    font-size: 40px;
+  .word-fish {
+    width: 82%;
+    height: 170px;
+    margin: 10px 0 0 -10px;
   }
 
-  .home nav {
-    align-self: flex-end;
-    margin-top: -46px;
-    gap: 18px;
-  }
-
-  .home nav a,
-  .research nav a,
-  .page nav a {
-    font-size: 15px;
+  .logo {
+    display: inline-block;
+    font-size: 38px;
   }
 
   .portrait {
-    width: min(78%, 280px);
-    margin-top: 12px;
+    width: 82%;
+    margin: 18px 0 0 -10px;
+  }
+
+  .contact {
+    margin-top: 18px;
+    gap: 16px;
+    font-size: 15px;
+  }
+
+  nav {
+    top: 38px;
+    right: 20px;
+    gap: 16px;
+  }
+
+  nav a {
+    font-size: 15px;
+  }
+
+  .bio,
+  .projects {
+    position: static;
+    width: auto;
+    margin: 44px 22px 0;
   }
 
   .bio {
-    width: 100%;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.4;
-  }
-
-  .bio br {
-    display: none;
   }
 
   .letter {
     position: relative;
-    width: min(88%, 340px);
     right: auto;
     bottom: auto;
-    align-self: flex-end;
-    margin-top: 12px;
+    width: min(80%, 320px);
+    margin: 28px 22px 0 auto;
   }
 
-  .home .footnote,
-  .research .footnote {
-    margin-top: auto;
-    font-size: 14px;
+  .projects {
+    row-gap: 40px;
   }
 
-  body.research {
-    display: block;
-  }
-
-  .research .stage {
-    gap: 10px;
-  }
-
-  .research .logo,
-  .research nav,
-  .research .strips,
-  .research .footnote {
-    position: static;
-  }
-
-  .research .logo {
-    font-size: 40px;
-  }
-
-  .research nav {
-    align-self: flex-end;
-    margin-top: -46px;
-    gap: 18px;
-  }
-
-  .research nav a {
-    font-size: 15px;
-  }
-
-  .research .strips {
-    width: 100%;
-    max-width: 500px;
-    align-self: center;
-    margin-top: 28px;
-  }
-
-  .strip-bg {
-    position: absolute;
-    left: 0;
-    top: -26%;
-    width: 100%;
-    height: 156%;
-    object-fit: fill;
-  }
-
-  .strip-body {
-    position: relative;
-    inset: auto;
-    display: grid;
+  .project {
     grid-template-columns: 1fr;
-    padding: 30px 26px 32px 36px;
+    row-gap: 14px;
   }
 
-  .strip-fig {
-    display: none;
+  .project-fig {
+    width: min(100%, 320px);
   }
 
-  .research .strip + .strip {
-    width: 100%;
-    margin-top: 28px;
-    margin-left: 0;
+  .project-copy h2 {
+    font-size: 21px;
   }
 
-  .strip-copy h2 {
-    font-size: 22px;
+  .project-copy .subtitle {
+    font-size: 16px;
   }
 
-  .strip-copy .subtitle,
-  .strip-copy .meta {
-    font-size: 17px;
-    line-height: 1.3;
-  }
-
-  .research .sprig {
-    right: -4px;
-    bottom: -16px;
-    width: 64px;
-  }
-
-  .research .footnote {
-    padding-top: 36px;
-  }
-
-  .bar {
-    width: calc(100% - 44px);
-    padding-top: 28px;
-    align-items: center;
-  }
-
-  .page .logo {
-    font-size: 40px;
-  }
-
-  .page nav {
-    gap: 16px;
-  }
-
-  .sheet {
-    width: calc(100% - 44px);
-    margin-top: 72px;
-  }
-}
-
-@media (max-width: 520px) {
-  .home nav,
-  .research nav {
-    margin-top: 0;
-    align-self: flex-end;
-  }
-
-  .strip-copy .meta {
-    margin-top: 0.55em;
+  .project-copy .meta {
+    font-size: 15px;
   }
 }

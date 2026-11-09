@@ -21,22 +21,31 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body class="home">
-    <!--
-      Drop PNG assets in /images (see the names below).
-      Transparent backgrounds sit cleanly on the paper color.
-    -->
     <div class="stage">
-      <a class="logo" href="index.html">kate chier</a>
+      <aside class="side">
+        <img class="lace" src="images/lace.png" alt="" draggable="false">
+        <a class="logo" href="index.html">kate chier</a>
+        <img
+          class="portrait"
+          src="images/portrait.png"
+          alt="A small portrait on torn paper, held with tape, with a sprig of dried flowers"
+          draggable="false"
+        >
+        <canvas
+          class="word-fish"
+          data-words="whimsical, serendipitous, inquisitive"
+          role="img"
+          aria-label="Three little fish swimming, made of the words whimsical, serendipitous, and inquisitive"
+        ></canvas>
+        <p class="contact">
+          <a href="mailto:katechier@berkeley.edu"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="1.2"/><path d="M2 4.5 8 9l6-4.5"/></svg>email</a>
+          <a href="https://scholar.google.com/citations?hl=en&amp;user=lovXZTMAAAAJ&amp;view_op=list_works&amp;gmla=AN_4Zu_ws8wFNWCr-XQoKiSiYSovnGV3mcKAza-eAZcbV_cpkpUku-HW_ADzYzAMoAOBScFudoHN_Ml32Rk5WSrf" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2h7v12L8 11l-3.5 3z"/></svg>google scholar</a>
+        </p>
+      </aside>
       <nav>
         <a href="index.html" aria-current="page">home</a>
         <a href="research.html">research</a>
       </nav>
-      <img
-        class="portrait"
-        src="images/portrait.png"
-        alt="A small portrait on torn paper, held with tape, with a sprig of dried flowers"
-        draggable="false"
-      >
       <div class="bio">
         <p>I’m a writer, artist, and researcher interested in how people gather fragments of the world and make meaning from them.</p>
         <p>Currently, I am an undergraduate senior at UC Berkeley studying computer science and creative writing.</p>
@@ -58,9 +67,9 @@
         </div>
         <img class="letter-front" src="images/envelope_front.png" alt="" draggable="false">
       </div>
-      <p class="footnote">site under construction...</p>
     </div>
     <script src="js/letter.js?v=10"></script>
+    <script src="js/word-fish.js"></script>
     <script src="js/navigation.js"></script>
   </body>
 </html>
